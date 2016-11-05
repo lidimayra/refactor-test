@@ -1,22 +1,17 @@
 class Webmotors
 
   def self.makes
-    #search the make
-    uri = URI("http://www.webmotors.com.br/carro/marcas")
-
-    # Make request for Webmotors site
-    response = Net::HTTP.post_form(uri, {})
-    JSON.parse response.body
+    request('marcas')
   end
 
   def self.models(make_id)
-    #search the models
-    uri = URI("http://www.webmotors.com.br/carro/modelos")
+    request('modelos', { marca: make_id })
+  end
 
-    # Make request for Webmotors site
-    make = Make.find_by(webmotors_id: make_id)
 
-    response = Net::HTTP.post_form(uri, { marca: make_id })
+  private_class_method def self.request(segment, **options)
+    uri = URI("http://www.webmotors.com.br/carro/#{segment}")
+    response = Net::HTTP.post_form(uri, options)
     JSON.parse response.body
   end
 
