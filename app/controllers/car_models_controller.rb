@@ -1,4 +1,4 @@
-class ModelsController < ApplicationController
+class CarModelsController < ApplicationController
   def index
     #search the models
     uri = URI("http://www.webmotors.com.br/carro/modelos")
@@ -13,8 +13,8 @@ class ModelsController < ApplicationController
 
     # Itera no resultado e grava os modelos que ainda não estão persistidas
     models_json.each do |json|
-      if Model.where(name: json["Nome"], make_id: make.id).size == 0
-        Model.create(make_id: make.id, name: json["Nome"])
+      if CarModel.where(name: json["Nome"], make_id: make.id).size == 0
+        CarModel.create(make_id: make.id, name: json["Nome"])
       end
     end
   end
