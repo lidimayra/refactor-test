@@ -9,7 +9,7 @@ RSpec.describe CarModel, type: :model do
   end
 
   context 'validations' do
-    it { is_expected.to belong_to :make }
+    it { is_expected.to belong_to(:make).inverse_of :car_models }
     it { is_expected.to validate_presence_of :make }
   end
 

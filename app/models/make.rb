@@ -1,5 +1,7 @@
 class Make < ActiveRecord::Base
 
+  has_many :car_models, inverse_of: :make
+
   validates :webmotors_id, presence: true, uniqueness: true
   validates :name, uniqueness: true
 

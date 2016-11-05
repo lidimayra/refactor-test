@@ -12,6 +12,7 @@ RSpec.describe Make, type: :model do
     it { is_expected.to validate_presence_of :webmotors_id }
     it { is_expected.to validate_uniqueness_of :webmotors_id }
     it { is_expected.to validate_uniqueness_of :name }
+    it { is_expected.to have_many(:car_models).inverse_of :make }
   end
 
   context 'when persisting makes' do
