@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe CarModel, type: :model do
 
-  subject { build :car_model }
+  let(:make) { create :make, name: 'CHEVROLET', id: 2 }
+  subject(:car_model) { build :car_model, make: make }
 
   context 'factories' do
     it { is_expected.to be_valid }
@@ -13,4 +14,26 @@ RSpec.describe CarModel, type: :model do
     it { is_expected.to validate_presence_of :make }
   end
 
+  context 'when persisting models' do
+    subject(:persist_if_absent) { CarModel.persist_if_absent make.id }
+    before { create :car_model, name: 'A20', make: make }
+
+    let(:query) { CarModel.where(name: name, make_id: make.id) }
+
+    context 'when model is absent' do
+      let(:name) { 'ADVANCED DESIGN' }
+
+      it 'persists model' do
+        expect { persist_if_absent }.to change(query, :count)
+      end
+    end
+
+    context 'when model is present' do
+      let(:name) { 'A20' }
+
+      it "doesn't persist model" do
+        expect { persist_if_absent }.not_to change(query, :count)
+      end
+    end
+  end
 end

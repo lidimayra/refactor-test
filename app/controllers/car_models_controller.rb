@@ -13,9 +13,7 @@ class CarModelsController < ApplicationController
 
     # Itera no resultado e grava os modelos que ainda não estão persistidas
     models_json.each do |json|
-      if CarModel.where(name: json["Nome"], make_id: make.id).size == 0
-        CarModel.create(make_id: make.id, name: json["Nome"])
-      end
+      CarModel.find_or_create_by(name: json["Nome"], make_id: make.id)
     end
   end
 end
