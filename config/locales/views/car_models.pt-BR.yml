@@ -1,0 +1,5 @@
+pt-BR:
+  car_models:
+    index:
+      back: 'Voltar'
+      no_models_registered: 'Nenhum modelo encontrado para esta Fabricante'

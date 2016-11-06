@@ -32,9 +32,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'decent_exposure', '3.0.0'
+gem 'haml-rails', "~> 0.9"
+gem 'twitter-bootstrap-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'guard-rspec', require: false
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -44,4 +52,6 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 3.1'
+
 end

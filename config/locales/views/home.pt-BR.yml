@@ -1,0 +1,5 @@
+pt-BR:
+  home:
+    index:
+      find_models: Buscar modelos
+      select_make: Escolha a Fabricante
