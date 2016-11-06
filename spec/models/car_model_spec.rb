@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CarModel, type: :model do
 
-  let(:make) { create :make, name: 'CHEVROLET', id: 2 }
+  let(:make) { create :make, name: 'CHEVROLET' }
   subject(:car_model) { build :car_model, make: make }
 
   context 'factories' do
@@ -15,7 +15,7 @@ RSpec.describe CarModel, type: :model do
   end
 
   context 'when persisting models' do
-    subject(:persist_if_absent) { CarModel.persist_if_absent make.id }
+    subject(:persist_if_absent) { CarModel.persist_if_absent 2 }
     before { create :car_model, name: 'A20', make: make }
 
     let(:query) { CarModel.where(name: name, make_id: make.id) }
