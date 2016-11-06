@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'decent_exposure', '3.0.0'
 gem 'haml-rails', "~> 0.9"
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
