@@ -1,6 +1,9 @@
 <form action="/car_models" method="GET">
   <p>
-    <label>Escolha a Fabricante:</label>
+    <label>
+      <%= "#{t '.select_make'}:" %>
+    </label>
+
     <select name="webmotors_make_id">
       <% makes.each do |make| %>
         <option value="<%= make.webmotors_id %>"><%= make.name %></option>
@@ -8,5 +11,5 @@
     </select>
   </p>
 
-  <input type="submit" value="Buscar modelos">
+  <input type="submit" value="<%= t '.find_models' %>">
 </form>
