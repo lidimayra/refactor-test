@@ -1,15 +1,8 @@
-<form action="/car_models" method="GET">
-  <p>
-    <label>
-      <%= "#{t '.select_make'}:" %>
-    </label>
+<%= form_tag car_models_path, method: :get do %>
+  <%= label_tag :webmotors_make_id, "#{t '.select_make'}:" %>
 
-    <select name="webmotors_make_id">
-      <% makes.each do |make| %>
-        <option value="<%= make.webmotors_id %>"><%= make.name %></option>
-      <% end %>
-    </select>
-  </p>
+  <%= select_tag :webmotors_make_id,
+        options_from_collection_for_select(makes, :webmotors_id, :name) %>
 
-  <input type="submit" value="<%= t '.find_models' %>">
-</form>
+  <%= submit_tag(t '.find_models') %>
+<% end %>

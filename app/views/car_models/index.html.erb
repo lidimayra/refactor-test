@@ -1,4 +1,5 @@
-<a href="/"><< <%= t '.back' %></a>
+<%= link_to t('.back'), root_path %>
+
 <ul>
   <% car_models.each do |car_model| %>
     <li><%= car_model.name %></li>
