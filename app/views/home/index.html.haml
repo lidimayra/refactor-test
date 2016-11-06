@@ -1,0 +1,7 @@
+= form_tag car_models_path, method: :get do
+  = label_tag :webmotors_make_id, "#{t '.select_make'}:"
+
+  = select_tag :webmotors_make_id,                                  |
+    options_from_collection_for_select(makes, :webmotors_id, :name) |
+
+  = submit_tag(t '.find_models')
