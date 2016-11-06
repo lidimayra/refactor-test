@@ -1,0 +1,11 @@
+.container {
+  margin-top: 15px;
+}
+
+.makes-box {
+  border: 1px solid #8c8c82;
+  border-radius: 3px;
+  border-style: dotted;
+  padding: 20px;
+  background-color: #e6e6ff;
+}

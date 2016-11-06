@@ -1,11 +1,12 @@
-.row
+.row.teste
   .col-md-4.col-md-offset-4
-    = form_tag car_models_path, method: :get do
+    .makes-box
+      = form_tag car_models_path, method: :get do
 
-      .form-group
-        = select_tag :webmotors_make_id,
-            options_from_collection_for_select(makes, :webmotors_id, :name),
-            { class: 'form-control', prompt: t('.select_make') }
+        .form-group
+          = select_tag :webmotors_make_id,
+              options_from_collection_for_select(makes, :webmotors_id, :name),
+              { class: 'form-control', prompt: t('.select_make'), required: 'true' }
 
-      .form-group
-        = submit_tag t('.find_models'), { class: 'btn btn-info' }
+        .form-group
+          = submit_tag t('.find_models'), { class: 'btn btn-info' }
